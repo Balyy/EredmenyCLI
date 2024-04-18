@@ -34,5 +34,52 @@ namespace EredmenyCLI
                 return eredmeny;
             }
         }
+
+        public static Eredmeny FindById(int id)
+        {
+            foreach (Eredmeny eredmeny in FindAll())
+            {
+                if (eredmeny.Id == id)
+                {
+                    return eredmeny;
+                }                                          
+                
+            }
+            return null;
+
+        }
+
+        public static void Save(Eredmeny eredmeny)
+        {
+            List<Eredmeny> eredmenyek = FindAll();
+
+            if (eredmeny.Id == 0)
+            {
+                // új elem létrehozása
+
+                int maxId = 0;
+
+                for (int i = 0; i < eredmenyek.Count; i++)
+                {
+                    if (eredmenyek[i].Id > maxId)
+                    {
+
+                    }
+                }
+            }
+            else
+            {
+                // meglévő frissítése
+
+                for (int i = 0; i < eredmenyek.Count; i++)
+                {
+                    if (eredmenyek[i].Id == eredmeny.Id)
+                    {
+                        eredmenyek[i] = eredmeny;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
